@@ -8,8 +8,8 @@ deployment and polls this repository for changes.
 | Portainer stack id | 3 |
 | Portainer host | ore-dock-101-1 |
 | Endpoint | - (id -) |
-| Swarm | bd77jug521l1 |
-| Live service | portainer-agents_portainer_agent |
+| Swarm | True |
+| Live service | svc:portainer-agents_portainer_agent |
 | Git repo | https://github.com/chaseoriginal/portainer-agents-101-1 |
 | Compose file | `docker-compose.yml` |
 | Auto-update poll | every 900s |
@@ -39,8 +39,8 @@ deployment and polls this repository for changes.
 ## Verifying a deployment
 
 ```bash
-docker service ls --filter name=portainer-agents_portainer_agent
-docker service inspect portainer-agents_portainer_agent --format '{{json .Spec.TaskTemplate.ContainerSpec.Mounts}}'
+docker service ls --filter name=svc:portainer-agents_portainer_agent
+docker service inspect svc:portainer-agents_portainer_agent --format '{{json .Spec.TaskTemplate.ContainerSpec.Mounts}}'
 ```
 
 A healthy stack shows `1/1` and the same volume names as before.
